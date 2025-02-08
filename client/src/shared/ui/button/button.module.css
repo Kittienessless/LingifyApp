@@ -1,0 +1,54 @@
+ 
+.root {
+  cursor: pointer;
+
+  transition: background-color 100ms;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+
+  padding: 10px 18px;
+  border-radius: 24px;
+}
+
+.primary {
+  background-color: lightblue;
+  color: blue;
+
+  padding: 8px 12px;
+  border-radius: 6px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.action {
+  background-color: wheat;
+  border: 2px solid red;
+
+  color: blue;
+}
+
+.simple {
+  background-color: white;
+  border: 2px solid blue;
+
+  color: blue;
+}
+
+.secondary {
+  background-color: navajowhite;
+  color: beige;
+}
+
+@media (max-width: 767px) {
+  .root {
+    padding: 12px 40px;
+  }
+}
+
+.linkContainer .root {
+  width: 100%;
+}
