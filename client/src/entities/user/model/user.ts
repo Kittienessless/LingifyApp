@@ -1,9 +1,7 @@
-/* import type {language} from 'entities/language'
-import type {article} from 'entities/article'
- */
+import { role } from "entities/roles" 
 export interface user   {
   email: string,
   name: string,
   password: string,
-  
+  role: role
 }
