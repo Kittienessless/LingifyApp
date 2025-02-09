@@ -2,7 +2,7 @@
 // контроллер для регистрации, получения данных, ввода и изменения
 
 
-const {getDb} = require("../DB/DB.js");
+const {getDb} = require("../db/db.js");
 
 require("dotenv").config();
 const {checkAuth} = require("../modules/user.js");

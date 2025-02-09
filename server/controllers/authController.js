@@ -1,8 +1,8 @@
 // TODO: 
 // кортроллер для входа и выхода
 const bcrypt = require('bcrypt');
-const saltRounds = 5;
- const jwt = require('jsonwebtoken')
+const saltRounds = await bcrypt.genSalt(5);
+const jwt = require('jsonwebtoken')
 const {getDb} = require("../db/db.js");
 const {addToken, getUserIdByToken, deleteByToken} = require("../db/token.js");
 
@@ -16,19 +16,19 @@ class authController {
   
   async registration (req, res){ 
     try {
-      const {email, name, password, description} = req.body;
+      const {email, name, password} = req.body;
        const login = await getDb().models.User.findOne({where: {email}});
       if(login !== null || undefined) {
          res.status(400).json({message : 'email is already exists'});
 
       }
-      const UserRole = 'user'
+      const hashPassword = await bcrypt.hash(password, saltRounds);
+     
        const newUser =  await getDb().models.User.create({
         email, 
         name,
-        password,
-        description,
-        role : UserRole
+        password : hashPassword,
+        role : process.env.USER_ROLE
        });
        console.log('user added');
        
@@ -44,7 +44,7 @@ class authController {
    try {
 
     const {email, password} = req.body;
-    
+    //разхэшировать пароли и сравнить 
     const user = await getDb().models.User.findOne( {where: { 
       [Op.and]: [
         {
