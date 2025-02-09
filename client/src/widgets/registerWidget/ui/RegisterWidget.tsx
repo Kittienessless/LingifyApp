@@ -3,7 +3,7 @@ import './register.css'
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Register} from 'features/profile';
-import { API } from "entities/user";
+import { userAPI } from 'shared/api';
 import {user} from 'entities/user'
 import {SUCCESSFUL_REGISTER} from 'shared/constances'
 import {Flex } from 'antd';
@@ -18,7 +18,7 @@ export const RegisterWidget: React.FC = () =>{
       setResult("");
       setError("");
       try {
-        await API.user.register(data);
+        await userAPI.user.register(data);
         setResult(SUCCESSFUL_REGISTER);
         setTimeout(() => {
           console.log('success')

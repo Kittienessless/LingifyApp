@@ -7,7 +7,7 @@ const errorHandler = async (response: Response) => {
   }
 };
 
-export const API = {
+export const userAPI = {
   auth: {
     login: async (data: user) => {
       const response = await fetch(`${BASE_URL}/auth/login`, {
