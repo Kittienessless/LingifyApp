@@ -8,6 +8,7 @@ require("dotenv").config();
 
 const cookieParser = require('cookie-parser');
 const {initDb} = require('./db/db.js');
+const { Sequelize } = require('sequelize');
 const server = express();
 
 /* server.use(
@@ -45,7 +46,7 @@ server.use(async function (err, req, res, next) {
 const start = async () => {
   try {
     await initDb();
-  
+    
     server.listen(PORT,  () => console.log(`server is running on port  ${PORT}`))
   } catch (e) {
     console.log(e)

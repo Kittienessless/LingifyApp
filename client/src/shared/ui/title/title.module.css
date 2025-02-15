@@ -1,0 +1,26 @@
+.root {
+
+}
+
+.basic{
+}
+.stylized{
+}
+.reference{
+}
+
+.primary {
+ 
+}
+.simple {
+ 
+}
+
+.secondary {
+ 
+}
+@media (max-width: 767px) {
+  .root {
+    padding: 12px 40px;
+  }
+}
