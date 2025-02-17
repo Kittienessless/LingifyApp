@@ -22,8 +22,7 @@ type Props = {
   className?: string;
   children?: React.ReactNode;
   onClick?: (event: any) => void;
-  testId?: string;
-}& Omit<React.ComponentProps<'button'>, 'type'>;
+ }& Omit<React.ComponentProps<'button'>, 'type'>;
 
 export const MyButton = ({
   type = ButtonType.button,
@@ -33,8 +32,7 @@ export const MyButton = ({
   children,
   className,
   onClick,
-  testId,
-  ...restTooltipProps
+   ...restTooltipProps
 }: Props) => {
   const buttonClassName = cn(
     styles.root,
@@ -49,14 +47,12 @@ export const MyButton = ({
 
   const button = (
     <button
-      // eslint-disable-next-line react/button-has-type
       type={type}
       className={buttonClassName}
       onClick={onClick}
       disabled={disabled}
       {...restTooltipProps}
-      data-testid={testId}
-    >
+     >
       {children}
     </button>
   );

@@ -7,7 +7,7 @@ import './App.css';
 } from 'react-router-dom';
 import { HeaderWidget } from 'widgets/header';
 import { FooterWidget } from 'widgets/footer';
- function App() {
+  function App() {
 
   return (
     <div>
